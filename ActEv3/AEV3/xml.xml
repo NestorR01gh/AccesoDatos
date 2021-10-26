@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<libros>
+    <libro id="1">
+        <titulo>Sira</titulo>
+        <autor>María Dueñas</autor>
+        <anyoPublicacion>2021</anyoPublicacion>
+        <editorial>Planeta de Libros</editorial>
+        <nPaginas>648</nPaginas>
+    </libro>
+    <libro id="2">
+        <titulo>La sabiduría de los psicópatas</titulo>
+        <autor>Kevin Dutton</autor>
+        <anyoPublicacion>2020</anyoPublicacion>
+        <editorial>Planeta</editorial>
+        <nPaginas>312</nPaginas>
+    </libro>
+    <libro id="3">
+        <titulo>Conjunto vacío</titulo>
+        <autor>Verónica Gerber</autor>
+        <anyoPublicacion>2017</anyoPublicacion>
+        <editorial>Pepitas de calabaza</editorial>
+        <nPaginas>200</nPaginas>
+    </libro>
+    <libro id="4">
+        <titulo>Un cuento perfecto</titulo>
+        <autor>Elísabet Benavent</autor>
+        <anyoPublicacion>2021</anyoPublicacion>
+        <editorial>SUMA</editorial>
+        <nPaginas>640</nPaginas>
+    </libro>
+    <libro id="5">
+        <titulo>La cuenta atrás para el verano</titulo>
+        <autor>La vecina rubia</autor>
+        <anyoPublicacion>2021</anyoPublicacion>
+        <editorial>Libros cúpula</editorial>
+        <nPaginas>416</nPaginas>
+    </libro>
+</libros>
