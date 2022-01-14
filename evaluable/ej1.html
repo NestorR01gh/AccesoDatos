@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+        let datos;
+
+        function guardar() {
+            $.ajax({
+                type: "POST", //metode POST per a enviar dades al servidor
+                url: "guardar.php", // ruta del fitxer PHP del servidor
+                data: datos, // dades a enviar (p.ex. {valor:valor, nom:nom})
+                //data: {id: 1, nombre: "hola", bio: "hola", estilo: "hola"},
+                success: function (response) { //resultat del PHP del servidor
+                    alert(response);
+                },
+                error: function () {
+                    alert("Error");
+                }
+            });
+        }
+
+        function borrar() {
+            let id = document.getElementById("txtCerca").value;
+            $.ajax({
+                type: "POST", //metode POST per a enviar dades al servidor
+                url: "borrar.php", // ruta del fitxer PHP del servidor
+                data: {id: id}, // dades a enviar (p.ex. {valor:valor, nom:nom})
+                //data: {id: 1, nombre: "hola", bio: "hola", estilo: "hola"},
+                success: function (response) { //resultat del PHP del servidor
+                    alert(response);
+                },
+                error: function () {
+                    alert("Error");
+                }
+            });
+        }
+
+        function cargaDatos() {
+            let id = document.getElementById("txtCerca").value;
+            axios.get("https://www.omdbapi.com/?i="+ id + "&apikey=8c06ff0e&plot=full").then(response => {
+                console.log(response.data);
+                let titol = response.data.Title;
+                let any = response.data.Year;
+                let estrena = response.data.Released;
+                let genere = response.data.Genre;
+                let argument = response.data.Plot;
+                datos = { id: id, titol: titol, any: any, estrena: estrena, genere: genere, argument: argument };
+            }).catch(error => {
+                console.error(error);
+            });
+        }
+
+        function handleMostrar() {
+            let id = document.getElementById("txtCerca").value;
+            //Per fer la búsqueda afegim i='id de la pel.lícula en qüestió' després &apikey=
+            //i la teua apikey y jo he afegit també plot=full per a obtindre l'argument complet
+            axios.get("https://www.omdbapi.com/?i="+ id + "&apikey=8c06ff0e&plot=full").then(response => {
+                console.log(response.data);
+                document.getElementById("titol").value = response.data.Title;
+                document.getElementById("any").value = response.data.Year;
+                document.getElementById("estrena").value = response.data.Released;
+                document.getElementById("genere").value = response.data.Genre;
+                document.getElementById("argument").value = response.data.Plot;
+            }).catch(error => {
+                console.error(error);
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="content">
+        <div class="bordeBusqueda">
+            <div class="busqueda">
+                <p class="txtCerca">Operacions</p>
+                <div>
+                    <input type="text" id="txtCerca" placeholder="Escriu una id...">
+                </div>
+                <br />
+                <div class="botones">
+                    <button onclick="handleMostrar()">Mostrar</button>
+                    <button onclick="cargaDatos()">Cargar</button>
+                    <button onclick="guardar()">Guardar</button>
+                    <button onclick="borrar()">Esborrar</button>
+                </div>
+                <p class="pInfo">Per guardar a la base de dades primer 'Cargar', espera y 'Guardar'</p>
+            </div>
+        </div>
+        <div class="bordeMostrar">
+            <div class="mostrar">
+                <p class="txtInfo">Info peli</p>
+                <p>Titol: <input id="titol" readonly="true" type="text"></p>
+                <p>Any: <input id="any" readonly="true" type="text"></p>
+                <p>Estrena: <input id="estrena" readonly="true" type="text"></p>
+                <p>Genere: <input id="genere" readonly="true" type="text"></p>
+                <p>Argument: </p>
+                <textarea id="argument" readonly="true" type=""></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

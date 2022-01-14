@@ -1,0 +1,72 @@
+.content {
+    width: 50%;
+    margin: auto;
+}
+
+.busqueda {
+    text-align: center;
+    margin: 20px;
+}
+
+.bordeBusqueda {
+    border-width: 2px;
+    border-style: solid;
+    border-color:red;
+    background-color: #fd5353;
+}
+
+.txtCerca {
+    margin-top: -15px;
+    font-size: 20px;
+}
+
+.bordeMostrar {
+    border-width: 2px;
+    border-style: solid;
+    border-color: green;
+    margin-top: 10px;
+    background-color: #5eab54;
+}
+
+.mostrar {
+    text-align: center;
+    margin: 20px;
+}
+
+.txtInfo {
+    margin-top: -15px;
+    font-size: 20px;
+}
+
+.divRow {
+    flex: 1;
+    flex-direction: row;
+}
+
+textarea {
+    width: 75%;
+    resize: vertical;
+    height: 200px;
+    background-color: #88d37e;
+    text-align: center;
+}
+
+input {
+    width: 50%;
+    background-color: #88d37e;
+    text-align: center;
+}
+
+#txtCerca {
+    background-color: #ff6666;
+}
+
+::placeholder {
+    color: black;
+}
+
+.pInfo {
+    margin-top: 1px;
+    margin-bottom: -15px;
+    font-size: 12px;
+}
